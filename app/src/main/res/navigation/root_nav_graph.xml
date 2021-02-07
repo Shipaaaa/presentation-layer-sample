@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_nav_graph"
+
+    tools:ignore="InvalidNavigation,UnusedNavigation">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.redmadrobot.app.presentation.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/toListFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.redmadrobot.app.presentation.list.FilmsFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_films">
+        <action
+            android:id="@+id/toDetailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.redmadrobot.app.presentation.details.FilmDetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_film_details">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/toList2Fragment"
+            app:destination="@id/listFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listFragment2"
+        android:name="com.redmadrobot.app.presentation.list.FilmsFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_films">
+    </fragment>
+
+</navigation>

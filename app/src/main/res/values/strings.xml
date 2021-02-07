@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">presentation-layer-sample</string>
+
+    <!-- region Common -->
+    <string name="close">Закрыть</string>
+    <string name="cancel">Отмена</string>
+    <string name="try_again">Повторить</string>
+    <!-- endregion -->
+
+    <!-- region Common errors -->
+    <string name="error_default">Что-то пошло не так</string>
+    <string name="error_no_internet">Нет соединения с интернетом</string>
+    <string name="error_data_unavailable">Не удалось загрузить данные</string>
+    <string name="error_data_unavailable_description">Сервер не отвечает, попробуйте\nзайти чуть позже</string>
+    <!-- endregion -->
+
+</resources>
