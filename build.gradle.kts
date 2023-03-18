@@ -1,26 +1,7 @@
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        maven { setUrl("https://jitpack.io") }
-    }
-
-    dependencies {
-        classpath(BuildPlugins.androidGradlePlugin)
-        classpath(BuildPlugins.kotlinGradlePlugin)
-        classpath(BuildPlugins.navigationSafeArgsGradlePlugin)
-        classpath(BuildPlugins.daggerHiltAndroidGradlePlugin)
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { setUrl("https://jitpack.io") }
-    }
-}
-
-tasks.register("clean").configure {
-    delete("build")
+plugins {
+    id(BuildPlugins.androidApplication) version BuildPlugins.Versions.androidApplicationVersion apply false
+    id(BuildPlugins.androidLibrary) version BuildPlugins.Versions.androidApplicationVersion apply false
+    id(BuildPlugins.kotlinAndroid) version kotlinVersion apply false
+    id(BuildPlugins.navigationSafeArgs) version navigationVersion apply false
+    id(BuildPlugins.daggerHiltAndroidPlugin) version hiltVersion apply false
 }

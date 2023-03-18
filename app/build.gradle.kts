@@ -1,37 +1,42 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinKapt)
-    id(BuildPlugins.kotlinAndroidExtensions)
+    id(BuildPlugins.kotlinParcelize)
     id(BuildPlugins.daggerHiltAndroidPlugin)
     id(BuildPlugins.navigationSafeArgs)
 }
 
 android {
-
-    compileSdkVersion(AndroidSdk.compile)
+    namespace = "ru.shipa.app"
+    compileSdk = AndroidSdk.compile
 
     defaultConfig {
-        applicationId = "com.redmadrobot.app"
+        applicationId = "ru.shipa.app"
 
-        minSdkVersion(AndroidSdk.min)
-        targetSdkVersion(AndroidSdk.target)
+        minSdk = AndroidSdk.min
+        targetSdk = AndroidSdk.target
 
         versionCode = 1
         versionName = "1.0"
 
         resConfig("ru")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
-        getByName("debug") {
+        debug {
             isDebuggable = true
 
             isMinifyEnabled = false
             isShrinkResources = false
         }
 
-        getByName("release") {
+        release {
             isDebuggable = false
 
             isMinifyEnabled = true
@@ -41,25 +46,23 @@ android {
         }
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
-
-    androidExtensions {
-        isExperimental = true
-    }
-
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
+kapt {
+    correctErrorTypes = true
+}
 
 dependencies {
     implementation(Libraries.kotlinStdLib)
@@ -77,7 +80,6 @@ dependencies {
     implementation(Libraries.navigationUi)
 
     implementation(Libraries.daggerHilt)
-    implementation(Libraries.androidxHiltLifecycle)
 
     implementation(Libraries.rxjava2)
     implementation(Libraries.rxAndroid)
@@ -96,5 +98,4 @@ dependencies {
     kapt(Libraries.daggerHiltCompiler)
     kapt(Libraries.androidxHiltCompiler)
     kapt(Libraries.glideCompiler)
-
 }

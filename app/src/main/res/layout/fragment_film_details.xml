@@ -79,7 +79,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.redmadrobot.app.presentation.base.view.ErrorView
+        <ru.shipa.app.presentation.base.view.ErrorView
             android:id="@+id/error_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

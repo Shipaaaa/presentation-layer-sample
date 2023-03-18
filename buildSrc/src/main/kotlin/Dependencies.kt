@@ -1,44 +1,43 @@
-const val kotlinVersion = "1.3.72"
-const val navigationVersion = "2.3.0"
-const val hiltVersion = "2.28-alpha"
+const val kotlinVersion = "1.8.10"
+const val navigationVersion = "2.5.3"
+const val hiltVersion = "2.45"
 
 object BuildPlugins {
 
     object Versions {
-        const val androidGradleVersion = "4.0.0"
+        const val androidApplicationVersion = "8.0.0-beta05"
     }
 
     const val androidApplication = "com.android.application"
     const val androidLibrary = "com.android.library"
-    const val kotlinAndroid = "kotlin-android"
+
+    const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinKapt = "kotlin-kapt"
-    const val kotlinAndroidExtensions = "kotlin-android-extensions"
-    const val daggerHiltAndroidPlugin = "dagger.hilt.android.plugin"
+    const val kotlinParcelize = "kotlin-parcelize"
+    const val daggerHiltAndroidPlugin = "com.google.dagger.hilt.android"
     const val navigationSafeArgs = "androidx.navigation.safeargs"
 
-    const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradleVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     const val navigationSafeArgsGradlePlugin =
         "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
     const val daggerHiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
-
 }
 
 object AndroidSdk {
-    const val min = 21
-    const val compile = 29
+    const val min = 24
+    const val compile = 33
     const val target = compile
 }
 
 object Libraries {
 
     private object Versions {
-        const val ktx = "1.3.0-rc01"
+        const val ktx = "1.9.0"
 
-        const val jetpack = "1.1.0"
-        const val constraintLayout = "1.1.3"
-        const val swipeRefreshLayout = "1.0.0"
-        const val material = "1.2.0-beta01"
+        const val jetpack = "1.6.1"
+        const val constraintLayout = "2.1.4"
+        const val swipeRefreshLayout = "1.1.0"
+        const val material = "1.8.0"
 
         const val lifecycle = "2.2.0"
 
@@ -75,7 +74,6 @@ object Libraries {
     const val daggerHilt = "com.google.dagger:hilt-android:$hiltVersion"
     const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
-    const val androidxHiltLifecycle = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.daggerHiltLifecycle}"
     const val androidxHiltCompiler = "androidx.hilt:hilt-compiler:${Versions.daggerHiltLifecycle}"
 
     const val rxjava2 = "io.reactivex.rxjava2:rxjava:${Versions.rxJava2}"
@@ -92,5 +90,4 @@ object Libraries {
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     const val logger = "com.orhanobut:logger:${Versions.logger}"
-
 }
